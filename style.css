@@ -78,3 +78,9 @@ hr {
   opacity: 1;
   border-top: 5px solid #666;
 }
+.jumbotron .f-1 img {
+  transition: 0.5s;
+}
+.jumbotron .f-1 img:hover {
+  transform: scale(1.1);
+}
