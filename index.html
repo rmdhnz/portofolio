@@ -69,7 +69,19 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-lg-8">
-            <form>
+            <div
+              class="alert alert-primary alert-dismissible fade show d-none my-alert"
+              role="alert"
+            >
+              your message has been sent !
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+            <form name="contact-form">
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input
@@ -77,17 +89,17 @@
                   class="form-control"
                   id="email"
                   placeholder="Input your email"
+                  name="email"
                 />
               </div>
               <div class="mb-3">
-                <label for="kontak" class="form-label"
-                  >ID Line / Phone Number</label
-                >
+                <label for="nama" class="form-label">Name</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="kontak"
-                  placeholder="Input your contact"
+                  id="nama"
+                  placeholder="Input your Name"
+                  name="name"
                 />
               </div>
               <div class="mb-3">
@@ -97,13 +109,24 @@
                   rows="3"
                   id="question"
                   placeholder="Drop your message"
+                  name="message"
                 ></textarea>
               </div>
-              <input
-                class="btn btn-outline-primary"
-                type="submit"
-                value="Submit"
-              />
+              <button type="submit" class="btn btn-outline-primary btn-kirim">
+                Submit
+              </button>
+              <button
+                class="btn btn-primary btn-loading d-none"
+                type="button"
+                disabled
+              >
+                <span
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                Loading...
+              </button>
             </form>
           </div>
         </div>
@@ -118,12 +141,27 @@
     </footer>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbxjeTXSJSPozYH-RduzdGzuZUxM-L2VNwqhnKrMXYqmE0qu3NGdaiksW7c90c_hUm4s0Q/exec";
+      const form = document.forms["contact-form"];
+      const btnKirim = document.querySelector(".btn-kirim");
+      const btnLoading = document.querySelector(".btn-loading");
+      const myAlert = document.querySelector(".my-alert");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        btnLoading.classList.toggle("d-none");
+        btnKirim.classList.toggle("d-none");
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            btnLoading.classList.toggle("d-none");
+            btnKirim.classList.toggle("d-none");
+            myAlert.classList.toggle("d-none");
+            form.reset();
+            console.log("Success!", response);
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
   </body>
 </html>
-<!-- <section class="jumbotron text-center py-3">
-      <div class="text-center banner">
-        <img src="img/9.JPG" alt="foto" class="rounded-circle img-thumbnail" />
-        <span>Click</span>
-      </div>
-      <p class="display-4 text-center">Fadhly Ramadhan | Fullstack Developer</p>
-    </section> -->
