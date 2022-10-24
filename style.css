@@ -129,11 +129,11 @@ hr {
 .project input {
   opacity: 0;
   bottom: 0;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   cursor: pointer;
   position: absolute;
-  transform: translateX(-25px) translateY(-10px);
+  transform: translateX(-45px) translateY(-10px);
   /* display: none; */
   z-index: 999;
 }
