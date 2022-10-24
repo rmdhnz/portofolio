@@ -2,16 +2,19 @@
   font-family: "cuy-font";
   src: url(BebasNeue-Regular.ttf) format("truetype");
 }
+:root {
+  --primer: #888;
+}
 * {
   font-family: cuy-font;
   padding: 0;
   margin: 0;
 }
-section {
+.contact {
   min-height: 600px;
 }
 .jumbotron {
-  background-color: #888;
+  background-color: var(--primer);
 }
 .jumbotron .banner img {
   width: 400px;
@@ -103,4 +106,48 @@ hr {
     width: 60%;
     height: auto;
   }
+}
+
+.project {
+  position: relative;
+  margin: auto;
+  width: fit-content;
+  height: auto;
+}
+.project header {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  /* border: 5px solid black; */
+  transform: rotate(180deg);
+  cursor: pointer;
+  transition: 1s;
+}
+/* .project header:hover {
+  transform: rotate(0deg);
+} */
+.project input {
+  opacity: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  position: absolute;
+  transform: translateX(-25px) translateY(-10px);
+  /* display: none; */
+  z-index: 999;
+}
+
+.project input:checked ~ header {
+  transform: rotate(0deg);
+}
+.my-project {
+  height: 0;
+  transition: 1s;
+  overflow: hidden;
+  background-color: var(--primer);
+}
+.my-project.active {
+  height: 400px;
+  padding: 5px;
 }
