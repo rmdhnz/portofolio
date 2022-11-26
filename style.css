@@ -17,6 +17,32 @@ body {
   padding: 0;
   margin: 0;
 }
+.humberger {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 5px;
+  position: relative;
+}
+.humberger div {
+  width: 100%;
+  border-radius: 25px;
+  background-color: black;
+  height: 20%;
+}
+.humberger input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+.humberger input:checked ~ div:nth-child(2) {
+  background-color: red;
+}
 main {
   width: 85%;
   height: 100%;
@@ -95,7 +121,7 @@ main {
   transform: scale(1) rotate(360deg);
 }
 .jumbotron .garis {
-  border-right: 5px solid #666;
+  border-right: 5px dashed #666;
 }
 .overlayer {
   width: 100%;
@@ -135,8 +161,15 @@ hr {
 .jumbotron .f-1 img:hover {
   transform: scale(1.1);
 }
-
-@media (max-width: 991px) {
+@media (max-width: 1400px) {
+  .sidebar {
+    display: none;
+  }
+  main {
+    width: 100%;
+  }
+}
+@media (max-width: 992px) {
   .jumbotron .garis {
     border: 0;
   }
