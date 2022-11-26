@@ -14,5 +14,5 @@ overlayer.addEventListener("click", function (e) {
 
 const myProjectInput = document.querySelector(".project input");
 myProjectInput.addEventListener("click", function () {
-  document.querySelector("section.my-project").classList.toggle("active");
+  document.querySelector(".my-project").classList.toggle("active");
 });
