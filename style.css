@@ -58,6 +58,7 @@
 body {
   padding: 0;
   margin: 0;
+  position: relative;
 }
 main {
   width: 85%;
@@ -77,6 +78,7 @@ main section {
   background-color: var(--sidebar-color);
   overflow: hidden;
   padding: 0;
+  transition: 500ms;
 }
 .sidebar header {
   line-height: 70px;
@@ -182,20 +184,21 @@ hr {
 .jumbotron .f-1 img:hover {
   transform: scale(1.1);
 }
-@media (min-width: 1301px) {
+@media (min-width: 1251px) {
   .humberger {
     display: none;
   }
 }
-@media (max-width: 1300px) {
-  .sidebar {
-    display: none;
-  }
-  .humberger {
-    display: flex;
-  }
+@media (max-width: 1251px) {
   main {
     width: 100%;
+  }
+  .sidebar {
+    display: inherit;
+    width: 50%;
+    transform: translateX(-100%);
+    z-index: 1;
+    opacity: 0.8;
   }
 }
 @media (max-width: 991px) {
@@ -216,4 +219,16 @@ hr {
     width: 60%;
     height: auto;
   }
+}
+
+.project {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(img/p1.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.geser {
+  transform: translateX(0);
 }
