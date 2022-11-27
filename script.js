@@ -11,8 +11,3 @@ overlayer.addEventListener("click", function (e) {
     overlayer.style.display = "none";
   }
 });
-
-const myProjectInput = document.querySelector(".project input");
-myProjectInput.addEventListener("click", function () {
-  document.querySelector(".my-project").classList.toggle("active");
-});

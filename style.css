@@ -2,19 +2,116 @@
   font-family: "cuy-font";
   src: url(BebasNeue-Regular.ttf) format("truetype");
 }
-:root {
-  --primer: #888;
-}
 * {
   font-family: cuy-font;
   padding: 0;
   margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+:root {
+  --primer: #888;
+  --sidebar-color: rgb(43, 42, 42);
+}
+.humberger {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.humberger div {
+  width: 100%;
+  height: 15%;
+  background-color: var(--sidebar-color);
+  border-radius: 25px;
+  transition: 0.5s;
+}
+.humberger input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  height: 100%;
+  cursor: pointer;
+  z-index: 999;
+}
+.humberger div:nth-child(2) {
+  transform-origin: 0 0;
+}
+.humberger div:nth-child(4) {
+  transform-origin: 0 100%;
+}
+.humberger input:checked ~ div:nth-child(2) {
+  transform: rotate(45deg);
+  width: 130%;
+}
+.humberger input:checked ~ div:nth-child(4) {
+  transform: rotate(-45deg);
+  width: 130%;
+}
+.humberger input:checked ~ div:nth-child(3) {
+  transform: scale(0);
+}
+body {
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+main {
+  width: 85%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  overflow: auto;
+}
+main section {
+  height: 100%;
+}
+.sidebar {
+  width: 15%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  background-color: var(--sidebar-color);
+  overflow: hidden;
+  padding: 0;
+  transition: 500ms;
+}
+.sidebar header {
+  line-height: 70px;
+  text-align: center;
+  user-select: none;
+  font-size: 22px;
+}
+.sidebar ul a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  padding-left: 40px;
+  border-top: 1px solid white;
+  transition: 0.5s;
+  border-radius: 25px;
+}
+.sidebar ul a:last-child {
+  border-bottom: 1px solid white;
+}
+.sidebar ul a:hover {
+  background-color: var(--primer);
+  padding-left: 50px;
 }
 .contact {
   min-height: 600px;
 }
 .jumbotron {
   background-color: var(--primer);
+  height: 100%;
 }
 .jumbotron .banner img {
   width: 400px;
@@ -47,7 +144,7 @@
   transform: scale(1) rotate(360deg);
 }
 .jumbotron .garis {
-  border-right: 5px solid #666;
+  border-right: 5px dashed #666;
 }
 .overlayer {
   width: 100%;
@@ -87,51 +184,23 @@ hr {
 .jumbotron .f-1 img:hover {
   transform: scale(1.1);
 }
-
-.project {
-  position: relative;
-  margin: auto;
-  width: fit-content;
-  height: auto;
+@media (min-width: 1251px) {
+  .humberger {
+    display: none;
+  }
 }
-.project header {
-  width: 50px;
-  height: 50px;
-  margin: 0 auto;
-  /* border: 5px solid black; */
-  transform: rotate(180deg);
-  cursor: pointer;
-  transition: 1s;
+@media (max-width: 1251px) {
+  main {
+    width: 100%;
+  }
+  .sidebar {
+    display: inherit;
+    width: 50%;
+    transform: translateX(-100%);
+    z-index: 1;
+    opacity: 0.8;
+  }
 }
-/* .project header:hover {
-  transform: rotate(0deg);
-} */
-.project input {
-  opacity: 0;
-  bottom: 0;
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  position: absolute;
-  transform: translateX(-45px) translateY(-10px);
-  /* display: none; */
-  z-index: 999;
-}
-
-.project input:checked ~ header {
-  transform: rotate(0deg);
-}
-.my-project {
-  height: 0;
-  transition: 1s;
-  overflow: hidden;
-  background-color: var(--primer);
-}
-.my-project.active {
-  min-height: 400px;
-  padding: 5px;
-}
-
 @media (max-width: 991px) {
   .jumbotron .garis {
     border: 0;
@@ -150,4 +219,16 @@ hr {
     width: 60%;
     height: auto;
   }
+}
+
+.project {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(img/p1.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.geser {
+  transform: translateX(0);
 }
