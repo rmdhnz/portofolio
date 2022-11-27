@@ -11,6 +11,20 @@ overlayer.addEventListener("click", function (e) {
     overlayer.style.display = "none";
   }
 });
+
+const sidebarMenu = document.querySelectorAll(".sidebar ul li a"),
+  sidebarContent = document.querySelectorAll("main section");
+for (let i = 0; i < sidebarMenu.length; ++i) {
+  sidebarMenu[i].addEventListener("click", (e) => {
+    e.preventDefault();
+    sidebarContent.forEach((isi) => {
+      if (!isi.classList.contains("d-none")) {
+        isi.classList.add("d-none");
+      }
+    });
+    sidebarContent[i].classList.remove("d-none");
+  });
+}
 const humbergerMenu = document.querySelector("main section .humberger"),
   sidebar = document.querySelector(".sidebar");
 humbergerMenu.addEventListener("click", (e) => {
