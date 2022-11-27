@@ -11,3 +11,10 @@ overlayer.addEventListener("click", function (e) {
     overlayer.style.display = "none";
   }
 });
+const humbergerMenu = document.querySelector("main section .humberger"),
+  sidebar = document.querySelector(".sidebar");
+humbergerMenu.addEventListener("click", (e) => {
+  if (e.target.tagName == "INPUT") {
+    sidebar.classList.toggle("geser");
+  }
+});
