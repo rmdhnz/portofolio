@@ -183,8 +183,15 @@ hr {
 .jumbotron .f-1 img:hover {
   transform: scale(1.1);
 }
+main nav {
+  height: 10%;
+  background-color: var(--primer);
+}
+.main-content {
+  height: 100%;
+}
 @media (min-width: 1251px) {
-  .humberger {
+  main nav.navbar {
     display: none;
   }
 }
@@ -198,6 +205,9 @@ hr {
     transform: translateX(-100%);
     z-index: 1;
     opacity: 0.8;
+  }
+  main section.project {
+    overflow-y: scroll;
   }
 }
 @media (max-width: 991px) {
