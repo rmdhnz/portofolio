@@ -25,10 +25,17 @@ for (let i = 0; i < sidebarMenu.length; ++i) {
     sidebarContent[i].classList.remove("d-none");
   });
 }
-const humbergerMenu = document.querySelector("main section .humberger"),
+const humbergerMenu = document.querySelectorAll(".humberger"),
   sidebar = document.querySelector(".sidebar");
-humbergerMenu.addEventListener("click", (e) => {
-  if (e.target.tagName == "INPUT") {
-    sidebar.classList.toggle("geser");
-  }
+humbergerMenu.forEach((menu) => {
+  menu.addEventListener("click", (e) => {
+    if (e.target.tagName == "INPUT") {
+      sidebar.classList.toggle("geser");
+    }
+  });
 });
+// humbergerMenu.addEventListener("click", (e) => {
+//   if (e.target.tagName == "INPUT") {
+//     sidebar.classList.toggle("geser");
+//   }
+// });

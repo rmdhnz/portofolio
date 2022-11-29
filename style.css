@@ -16,7 +16,6 @@
 .humberger {
   width: 30px;
   height: 30px;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
