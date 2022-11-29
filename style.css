@@ -66,7 +66,11 @@ main {
   right: 0;
   overflow: auto;
 }
-main section {
+main .jumbotron,
+main .contact {
+  height: 100%;
+}
+main .project {
   min-height: 800px;
 }
 .sidebar {
@@ -202,6 +206,9 @@ main nav {
     transform: translateX(-100%);
     z-index: 1;
     opacity: 0.8;
+  }
+  main section.project {
+    min-height: 800px;
   }
 }
 @media (max-width: 991px) {
